@@ -11,7 +11,15 @@ export default function Home() {
     formState: { errors, isSubmitted },
   } = useForm();
 
-  const create = async (data) => {};
+  const create = async (data) => {
+    fetch('http://localhost:3000/api/create', {
+      body: JSON.stringify(data),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  };
 
   const onSubmit = async (data) => {
     toast.promise(
